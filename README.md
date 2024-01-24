@@ -1,37 +1,80 @@
-# E-commerce Customer Behavior Analysis
-This project aims to examine e-commerce customer behavior using a comprehensive dataset available on Kaggle. The dataset provides valuable insights into customer behavior, including user logs and transaction data. The objective of this project is to analyze the dataset and gain insights into common purchasing patterns, product preferences, buying frequency, and the impact of time on online shopping behavior.
+# E-commerce Customer Behavior Analysis: Batch & Real-Time Workflows
+
+## Overview
+
+This project offers a dual approach to understanding e-commerce customer behavior through 
+1. Batch data analysis
+2. Real-time data processing. 
+
+Utilizing historical and dynamic datasets, the goal is to glean insights into purchasing patterns, product preferences, buying frequency, and the temporal impact on online shopping behavior.
 
 ## Dataset
-The dataset used for this project can be accessed from the following Kaggle URL: E-commerce Customer Behavior Dataset. It contains a rich collection of customer behavior data, including user logs and transaction information. Please download the dataset and ensure it is available for analysis.
+Access the dataset at [E-commerce Customer Behavior Dataset](https://www.kaggle.com/datasets/uom190346a/e-commerce-customer-behavior-dataset).
 
-## Running the Application
-To run the application, we have set up a Hadoop Docker cluster. The Hadoop cluster will be responsible for storing and preprocessing the large datasets of user logs and transaction data. Additionally, we will utilize Apache Spark, a powerful distributed computing framework, to perform machine learning algorithms for analyzing customer behavior and predicting future buying patterns.
+#### Tools and Technologies
+- **Stream Processing:** Apache Kafka and Apache Flink
+- **Database:** Any suitable database (e.g., PostgreSQL, MongoDB)
 
-Please follow the steps below to run the application:
+## Batch Data Analysis:
 
-- Ensure that you have Docker installed on your machine.
-- Clone the project repository to your local machine.
-- Navigate to the project directory.
-- Run the Docker Compose file using the following command:
-```
-docker-compose up
-```
-This will start the Hadoop cluster and make it available for processing the dataset.
-Once the cluster is up and running, you can upload and store the dataset in the Hadoop Distributed File System (HDFS). You can use the following command to upload the dataset:
-```
-docker exec -it namenode hdfs dfs -put /path/to/E-commerceCustomerBehavior-Sheet1.csv /E-commerceCustomerBehavior-Sheet1.csv
-```
+### Objective
+Employs a Hadoop Docker cluster and Apache Spark for batch processing. It extracts insights from historical data to understand customer behavior to some questions.
 
-After uploading the dataset, you can start the analysis and preprocessing using PySpark. The analysis code is available in the project repository. You can run it using the following command:
-```
-docker exec -it spark-master spark-submit /path/to/Analysis.py
-```
-```
-docker exec -it spark-master spark-submit /path/to/predict.py
-```
 
-The analysis script will perform various operations on the dataset and answer the following questions:
-What are the common purchasing patterns observed in the dataset, and how do they vary by demographic factors (age, location)?
-Can we identify any trends in product preferences or buying frequency?
-How does the time of day or week impact online shopping behavior according to the dataset?
+#### Running the Application
+1. Ensure Docker is installed.
+2. Clone the repository.
+3. Run Docker Compose:
+    ```
+    docker-compose up
+    ```
+4. Upload the dataset to HDFS:
+    ```
+    docker exec -it namenode hdfs dfs -put /path/to/E-commerceCustomerBehavior-Sheet1.csv /E-commerceCustomerBehavior-Sheet1.csv
+    ```
+5. Start analysis and preprocessing using PySpark:
+    ```
+    docker exec -it spark-master spark-submit /path/to/Analysis.py
+    ```
+    ```
+    docker exec -it spark-master spark-submit /path/to/predict.py
+    ```
 
+
+## Real-Time E-commerce Data Workflow:
+
+### Objective
+Introducing a real-time approach using Apache Kafka and Flume and Spark Streaming to capture and analyze dynamic customer behavior and transactions.
+
+
+
+#### Real-Time Workflow:
+
+##### 1. Data Ingestion and Streaming
+- **Set up Kafka:** Install and configure Apache Kafka for real-time e-commerce transaction data.
+
+##### 2. Stream Processing
+- **Choose Processing Framework:** Select either Apache Flink or Apache Spark Streaming.
+- **Implement Kafka Producer:** Simulate real-time transactions and feed them into Kafka topics.
+- **Processing Logic:** Use the chosen framework to filter, aggregate, and enrich real-time data.
+
+##### 3. Data Storage
+- **Hadoop HDFS:** Store processed data, summaries, and insights for historical analysis.
+
+##### 4. Generate Visual Reports
+- **Visualization Tool:** Utilize tools like Matplotlib or Tableau to create visual reports.
+- **Database Storage:** Store visualized data and insights in a suitable database.
+
+#### Implementation
+- **Integration:** Merge real-time workflow with the existing project.
+- **Continuous Processing:** Ensure continuous real-time processing and implement monitoring mechanisms.
+- **Documentation:** Update the README with steps for running the real-time workflow.
+
+#### Running the Real-Time Workflow
+1. **Start Kafka:** Ensure it's running with topics created.
+2. **Run Kafka Producer:** Simulate or generate real-time transactions.
+3. **Start Stream Processing:** Use Flink or Spark Streaming to process real-time data.
+4. **Store Processed Data:** Verify data is stored in Hadoop HDFS.
+5. **Generate Visual Reports:** Utilize visualization tools for real-time insights.
+
+By combining batch and real-time approaches, this project provides a comprehensive understanding of both historical and dynamic e-commerce customer behavior.
