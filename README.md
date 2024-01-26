@@ -48,10 +48,16 @@ Employs a Hadoop Docker cluster and Apache Spark for batch processing. It extrac
     ```
 5. Start analysis and preprocessing using PySpark:
     ```
-    docker exec -it spark-master spark-submit /path/to/Analysis.py
+    docker exec -it spark-master bash 
     ```
     ```
-    docker exec -it spark-master spark-submit /path/to/predict.py
+    spark-submit --master yarn /path/to/Analysis.py
+    ```
+    ```
+    docker exec -it spark-master bash 
+    ```
+    ```
+    spark-submit /path/to/predict.py
     ```
 ---
 
