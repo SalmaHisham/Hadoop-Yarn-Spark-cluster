@@ -39,30 +39,34 @@ Answer the following Questions:
 5. **Generate Visual Reports consumer**: Utilize the visualization tool to generate visual reports based on real-time data.
 
 
-## Running the Application
-Please follow the steps below to run the application:
+## Running the Real-Time Workflow:
 
-- Ensure that you have Docker installed on your machine.
-- Clone the project repository to your local machine.
-- Navigate to the project directory.
-- Run the Docker Compose file using the following command:
-```
-docker-compose up
-```
-This will start the Hadoop cluster and make it available for processing the dataset.
-Once the cluster is up and running, you can upload and store the dataset in the Hadoop Distributed File System (HDFS). You can use the following command to upload the dataset:
-```
-docker exec -it namenode hdfs dfs -put /path/to/E-commerceCustomerBehavior-Sheet1.csv /E-commerceCustomerBehavior-Sheet1.csv
-```
+### Local mode:
 
-After uploading the dataset, you can start the analysis and preprocessing using Spark stream. 
+  * Launch ZooKeeper: Start ZooKeeper by running the following command:
+```    
+zookeeper-server-start.sh config/zookeeper.properties
+```
+  * Run kafka_producer.py: Execute the script to generate real-time data. This will simulate the generation of e-commerce transactions.
+```
+python kafka_producer.py
+```
+  * Run kafka_consumer_detect_anomalies.py: Start the Kafka consumer script that consumes the generated data and detects anomalies in real-time.
+```
+python kafka_consumer_detect_anomalies.py
+```
+  * Push the results to PostgreSQL: Store the processed data, including any detected anomalies, in PostgreSQL for further analysis and record-keeping.
 
-The analysis code is available in the project repository under the `Main foler`. You can run it using the following command:
-```
-docker exec -it spark-master spark-submit /kafka_producer_ecommerce.py
-```
-```
-docker exec -it spark-master spark-submit /kafaka_consumer_ecommerce_to_console.py
-```
+### Cluster mode:
 
+
+  * Launch the entire Docker Compose cluster configuration by executing the following command:
+```
+docker-compose -f all-docker-compose.yaml up
+```
+  * Run Kafka Producer in Kafka Broker container: Simulate or generate real-time transactions by running the Kafka producer script within the Kafka Broker container.
+
+  * Run the consumer in Spark container: Execute the Spark consumer script within the Spark container to process the real-time data and perform any necessary analysis or anomaly detection.
+
+![photo](https://github.com/nourhansowar/E-commerce-Customer-Behavior-Analysis/assets/48545560/4cf462e6-d3cb-4be8-a5d7-12351d2824c8)
 
