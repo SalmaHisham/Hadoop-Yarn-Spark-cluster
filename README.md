@@ -88,6 +88,8 @@ Introducing a real-time approach using Apache Kafka, Flume, and Spark Streaming 
 
 Same as before, except that the "preprocessing part" will be done by the **consumers**. To sum up:
 
+![photo](https://github.com/nourhansowar/E-commerce-Customer-Behavior-Analysis/assets/48545560/1a4fcb0e-50c8-484b-a15f-3674cbce90a7)
+
 1. **Start Kafka:** Ensure it's running with topics created.
 2. **Run Kafka Producer:** Simulate or generate real-time transactions.
 3. **Start Stream Processing:** Use Spark Streaming consumers to process real-time data.
