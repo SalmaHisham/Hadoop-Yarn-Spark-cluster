@@ -30,14 +30,6 @@ Answer the following Questions:
 - Which customers are at risk of not making future purchases based on their Days Since Last Purchase and Satisfaction Level?
 - Can we predict a customer’s Satisfaction Level based on their demographic and purchase history data?
 
-## Real-time data workflow:
-
-1. **Start Kafka**: Ensure that Apache Kafka is running and Kafka topics are created.
-2. **Run Kafka Producer**: Execute the Kafka producer script to simulate or generate real-time e-commerce transactions.
-3. **Start Stream Processing consumer**: Run the Apache Spark Streaming framework to process the real-time data.
-4. **Store Processed Data consumer**: Verify that the processed data is stored in Hadoop HDFS.
-5. **Generate Visual Reports consumer**: Utilize the visualization tool to generate visual reports based on real-time data.
-
 
 ## Running the Real-Time Workflow:
 
