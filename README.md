@@ -22,7 +22,6 @@ Access the dataset at [E-commerce Customer Behavior Dataset](https://www.kaggle.
 - **Hadoop**:  To store and preprocess the large datasets of user logs and transaction data.
 - **YARN**: To efficiently manage resources for complex analytics tasks
 - **Apache Kafka**: To ingest real-time e-commerce transaction data.
-- **Flume**: Ingest data from a messaging system and feed it into a Spark streaming job for real-time processing.
 - **Apache Spark Streaming** : For real-time data processing and to analyze customer behavior and predict future buying patterns.
 - **PostgreSQL**: For storing  the the result of Data analysis and insights
 
