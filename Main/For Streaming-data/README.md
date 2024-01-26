@@ -58,6 +58,7 @@ python kafka_consumer_detect_anomalies.py
   * Push the results to PostgreSQL: Store the processed data, including any detected anomalies, in PostgreSQL for further analysis and record-keeping.
 
 ### Cluster mode:
+![photo](https://github.com/nourhansowar/E-commerce-Customer-Behavior-Analysis/assets/48545560/4cf462e6-d3cb-4be8-a5d7-12351d2824c8)
 
 
   * Launch the entire Docker Compose cluster configuration by executing the following command:
@@ -68,5 +69,4 @@ docker-compose -f all-docker-compose.yaml up
 
   * Run the consumer in Spark container: Execute the Spark consumer script within the Spark container to process the real-time data and perform any necessary analysis or anomaly detection.
 
-![photo](https://github.com/nourhansowar/E-commerce-Customer-Behavior-Analysis/assets/48545560/4cf462e6-d3cb-4be8-a5d7-12351d2824c8)
 
