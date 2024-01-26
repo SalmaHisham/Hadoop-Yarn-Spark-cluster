@@ -5,7 +5,6 @@
 - YARN
 - Apache Spark Streaming 
 - Apache Kafka
-- Flume
 - PostgreSQL
 
 ## Tasks
